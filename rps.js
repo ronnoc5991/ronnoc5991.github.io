@@ -46,16 +46,16 @@ function setPlayerIcon(image){ //function that displays player selection in "pla
     if (image == 'rock') {
         playericon.style.backgroundSize = 'cover';
         playericon.style.backgroundImage = 'url(images/rock1.png)';
-        playericon.style.border = "5px solid rgba(255, 255, 255, 0.50)";
+        playericon.style.border = "5px solid rgba(255, 255, 255, 1)";
         
     } else if (image == 'paper') {
         playericon.style.backgroundSize = 'cover';
         playericon.style.backgroundImage = 'url(images/paper1.png)';
-        playericon.style.border = "5px solid rgba(255, 255, 255, 0.50)";
+        playericon.style.border = "5px solid rgba(255, 255, 255, 1)";
     } else if (image == 'scissors') {
         playericon.style.backgroundSize = 'cover';
         playericon.style.backgroundImage = 'url(images/scissors1.png)';
-        playericon.style.border = "5px solid rgba(255, 255, 255, 0.50)";
+        playericon.style.border = "5px solid rgba(255, 255, 255, 1)";
     }
 }
 
@@ -63,15 +63,15 @@ function setComputerIcon(image){
     if (image == 'rock'){
         computericon.style.backgroundSize = 'cover';
         computericon.style.backgroundImage = 'url(images/rock1.png)';
-        computericon.style.border = "5px solid rgba(255, 255, 255, 0.50)";
+        computericon.style.border = "5px solid rgba(255, 255, 255, 1)";
     } else if (image == 'paper'){
         computericon.style.backgroundSize = 'cover';
         computericon.style.backgroundImage = 'url(images/paper1.png)';
-        computericon.style.border = "5px solid rgba(255, 255, 255, 0.50)";
+        computericon.style.border = "5px solid rgba(255, 255, 255, 1)";
     } else if (image == 'scissors'){
         computericon.style.backgroundSize = 'cover';
         computericon.style.backgroundImage = 'url(images/scissors1.png)';
-        computericon.style.border = "5px solid rgba(255, 255, 255, 0.50)";
+        computericon.style.border = "5px solid rgba(255, 255, 255, 1)";
     }
 }
 //function that displays computer selection in "computericon"
