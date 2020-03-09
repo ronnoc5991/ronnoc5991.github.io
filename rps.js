@@ -4,6 +4,8 @@ const playarea = document.getElementById('playarea');
 const rock = document.getElementById("Rock");
 const paper = document.getElementById("Paper");
 const scissors = document.getElementById("Scissors");
+const playericon = document.getElementById("playericon");
+const computericon = document.getElementById("computericon");
 let wins = document.getElementById("wins");
 let losses = document.getElementById("losses");
 let ties = document.getElementById("ties");
@@ -37,8 +39,42 @@ function togglePlayButton (){ //removes the play button after the game is starte
 }
 
 function togglePlayArea(){ //makes the play area appear
-    playarea.style.display = 'flex';
+    playarea.style.display = 'grid';
 }
+
+function setPlayerIcon(image){ //function that displays player selection in "playericon"    
+    if (image == 'rock') {
+        playericon.style.backgroundSize = 'cover';
+        playericon.style.backgroundImage = 'url(images/rock1.png)';
+        playericon.style.border = "5px solid rgba(255, 255, 255, 0.50)";
+        
+    } else if (image == 'paper') {
+        playericon.style.backgroundSize = 'cover';
+        playericon.style.backgroundImage = 'url(images/paper1.png)';
+        playericon.style.border = "5px solid rgba(255, 255, 255, 0.50)";
+    } else if (image == 'scissors') {
+        playericon.style.backgroundSize = 'cover';
+        playericon.style.backgroundImage = 'url(images/scissors1.png)';
+        playericon.style.border = "5px solid rgba(255, 255, 255, 0.50)";
+    }
+}
+
+function setComputerIcon(image){
+    if (image == 'rock'){
+        computericon.style.backgroundSize = 'cover';
+        computericon.style.backgroundImage = 'url(images/rock1.png)';
+        computericon.style.border = "5px solid rgba(255, 255, 255, 0.50)";
+    } else if (image == 'paper'){
+        computericon.style.backgroundSize = 'cover';
+        computericon.style.backgroundImage = 'url(images/paper1.png)';
+        computericon.style.border = "5px solid rgba(255, 255, 255, 0.50)";
+    } else if (image == 'scissors'){
+        computericon.style.backgroundSize = 'cover';
+        computericon.style.backgroundImage = 'url(images/scissors1.png)';
+        computericon.style.border = "5px solid rgba(255, 255, 255, 0.50)";
+    }
+}
+//function that displays computer selection in "computericon"
 
 function playRound(){ //keeps track of round... after five rounds removes the event listeners from buttons
     if (roundCount == 6){ // when score = 5, remove the listeners
@@ -63,15 +99,19 @@ function computerPlay(){ //this randomizes the computers selection
 
 function playerRock(){ //this plays upon rock being clicked
     let x = computerPlay();
+    setPlayerIcon('rock');
    if (x == 'ROCK'){
+        setComputerIcon('rock');
         console.log('TIE!');
         tieCount++;
         updateTieCount(tieCount);
    } else if (x == 'PAPER'){
+        setComputerIcon('paper');
         console.log('You Lose!  PAPER beats ROCK!');
         lossCount++;
         updateLossCount(lossCount);
    } else if (x == 'SCISSORS'){
+        setComputerIcon('scissors');
         console.log('You Win! ROCK beats SCISSORS!');
         winCount++;
         updateWinCount(winCount);
@@ -84,15 +124,19 @@ function playerRock(){ //this plays upon rock being clicked
 
 function playerPaper(){ // this plays upon paper being clicked
     let x = computerPlay();
+    setPlayerIcon('paper');
     if (x == 'PAPER'){
+        setComputerIcon('paper');
         console.log('TIE!');
         ++tieCount;
         updateTieCount(tieCount);
     } else if (x == 'ROCK'){
+        setComputerIcon('rock');
         console.log('You Win! PAPER beats ROCK!');
         ++winCount;
         updateWinCount(winCount);
     } else if (x == 'SCISSORS') {
+        setComputerIcon('scissors');
         console.log('You Lose! SCISSORS beats PAPER!');
         ++lossCount;
         updateLossCount(lossCount);
@@ -105,15 +149,19 @@ function playerPaper(){ // this plays upon paper being clicked
 
 function playerScissors(){ //this plays upon scissors being clicked
     let x = computerPlay();
+    setPlayerIcon('scissors');
     if (x == 'SCISSORS'){
+        setComputerIcon('scissors');
         console.log('TIE!');
         ++tieCount;
         updateTieCount(tieCount);
     } else if (x == 'PAPER'){
+        setComputerIcon('paper');
         console.log('You win! SCISSORS beats PAPER!');
         ++winCount;
         updateWinCount(winCount);
     } else if (x == 'ROCK'){
+        setComputerIcon('rock');
         console.log('You Lose! ROCK beats SCISSORS!');
         ++lossCount;
         updateLossCount(lossCount);

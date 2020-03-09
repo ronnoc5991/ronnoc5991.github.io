@@ -7,10 +7,8 @@
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 2fr 3fr 3fr;
-    background: #ECE9E6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #A8E0FF;
 
 
 
@@ -132,12 +130,13 @@
 
 #play:hover{
     cursor: pointer;
-    background-color: red;
+    background-color: #FDFFFC;
     border: 15px solid yellow;
 }
 
 #playarea{
     display: none;
+    grid-template-columns: 1fr 1fr 1fr;
     background-color: rgba(255, 255, 255, 0.40);
     border: 5px solid rgba(255, 255, 255, 0.50);
     border-radius: 5%;
@@ -147,8 +146,23 @@
     align-items: center;
 }
 
+#playericon{
+    width: 50%;
+    padding-bottom: 50%;
+    border-radius: 50%;
+    justify-self: center;
+}
+
 #vs{
     justify-content: center;
+    font-size: 30;
+}
+
+#computericon{
+    width: 50%;
+    padding-bottom: 50%;
+    border-radius: 50%;
+    justify-self: center;
 }
 
 #bottom {
@@ -179,13 +193,14 @@
         justify-self: center;
         margin-bottom: 80;
         background-image: url(images/rock1.png);
+        background-size: contain;
     }
 
     #Rock:hover{
         border: 8px solid yellow;
         transform: scale(1.1);
         cursor: pointer;
-        background-color: red;
+        background-color: #4D9DE0;
     }
 
     #Paper{
@@ -195,13 +210,14 @@
         justify-self: center;
         margin-top: 80;
         background-image: url(images/paper1.png);
+        background-size: contain;
     }
 
     #Paper:hover{
         border: 8px solid yellow;
         transform: scale(1.1);
         cursor: pointer;
-        background-color: red;
+        background-color: #E15554;
     }
 
     #Scissors{
@@ -211,13 +227,14 @@
         justify-self: center;
         margin-bottom: 80;
         background-image: url(images/scissors1.png);
+        background-size: contain;
     }
 
     #Scissors:hover{
         border: 8px solid yellow;
         transform: scale(1.1);
         cursor: pointer;
-        background-color: red;
+        background-color: #E1BC29;
     }
 
 
@@ -250,7 +267,9 @@
             <div id="faceoff">
                 <button type="button" id="play"> Play </button>
                 <div id = "playarea">
+                    <div id="playericon"></div>
                     <div id="vs">VS</div>
+                    <div id="computericon"></div>
                 </div>
             </div>
 
