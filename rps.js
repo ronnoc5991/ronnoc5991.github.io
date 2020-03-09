@@ -1,5 +1,6 @@
 var options = Array('ROCK' , 'PAPER' , 'SCISSORS');
 const playbutton = document.getElementById("play");
+const playarea = document.getElementById('playarea');
 const rock = document.getElementById("Rock");
 const paper = document.getElementById("Paper");
 const scissors = document.getElementById("Scissors");
@@ -27,8 +28,17 @@ function startGame(){ //initializes the event listeners and removes event listen
     paper.addEventListener('click' , playRound);
     scissors.addEventListener('click' , playRound);
     playbutton.removeEventListener('click' , startGame);
+    togglePlayButton(); //makes the play button disappear
+    togglePlayArea();//makes the play area appear
 }
 
+function togglePlayButton (){ //removes the play button after the game is started
+    playbutton.style.display = 'none';
+}
+
+function togglePlayArea(){ //makes the play area appear
+    playarea.style.display = 'flex';
+}
 
 function playRound(){ //keeps track of round... after five rounds removes the event listeners from buttons
     if (roundCount == 6){ // when score = 5, remove the listeners
@@ -45,9 +55,6 @@ function playRound(){ //keeps track of round... after five rounds removes the ev
         } else console.log("I think this is a tie")
 }
 }
-//I need something that evaluates the score and removes the event listeners as well as declares a winner when the score is equal to five
-
-//else = run the event listeners
 
 function computerPlay(){ //this randomizes the computers selection
     let = computerSelection = options[Math.floor(Math.random() *options.length)];
