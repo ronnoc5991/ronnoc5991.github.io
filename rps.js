@@ -6,6 +6,7 @@ const paper = document.getElementById("Paper");
 const scissors = document.getElementById("Scissors");
 const playericon = document.getElementById("playericon");
 const computericon = document.getElementById("computericon");
+const declarewinner = document.getElementById("declarewinner");
 let wins = document.getElementById("wins");
 let losses = document.getElementById("losses");
 let ties = document.getElementById("ties");
@@ -47,37 +48,42 @@ function setPlayerIcon(image){ //function that displays player selection in "pla
         playericon.style.backgroundSize = 'cover';
         playericon.style.backgroundImage = 'url(images/rock1.png)';
         playericon.style.border = "5px solid rgba(255, 255, 255, 1)";
+        playericon.style.backgroundColor = '#4D9DE0';
         
     } else if (image == 'paper') {
         playericon.style.backgroundSize = 'cover';
         playericon.style.backgroundImage = 'url(images/paper1.png)';
         playericon.style.border = "5px solid rgba(255, 255, 255, 1)";
+        playericon.style.backgroundColor = '#E15554';
     } else if (image == 'scissors') {
         playericon.style.backgroundSize = 'cover';
         playericon.style.backgroundImage = 'url(images/scissors1.png)';
         playericon.style.border = "5px solid rgba(255, 255, 255, 1)";
+        playericon.style.backgroundColor = '#E1BC29';
     }
 }
 
-function setComputerIcon(image){
+function setComputerIcon(image){ //function that displays computer selection in "computericon" 
     if (image == 'rock'){
         computericon.style.backgroundSize = 'cover';
         computericon.style.backgroundImage = 'url(images/rock1.png)';
         computericon.style.border = "5px solid rgba(255, 255, 255, 1)";
+        computericon.style.backgroundColor = '#4D9DE0';
     } else if (image == 'paper'){
         computericon.style.backgroundSize = 'cover';
         computericon.style.backgroundImage = 'url(images/paper1.png)';
         computericon.style.border = "5px solid rgba(255, 255, 255, 1)";
+        computericon.style.backgroundColor = '#E15554';
     } else if (image == 'scissors'){
         computericon.style.backgroundSize = 'cover';
         computericon.style.backgroundImage = 'url(images/scissors1.png)';
         computericon.style.border = "5px solid rgba(255, 255, 255, 1)";
+        computericon.style.backgroundColor = '#E1BC29';
     }
 }
-//function that displays computer selection in "computericon"
 
-function playRound(){ //keeps track of round... after five rounds removes the event listeners from buttons
-    if (roundCount == 6){ // when score = 5, remove the listeners
+function playRound(){ //keeps track of score... when player or computer reaches 5 points, game ends and eventlisteners are removed
+    if (winCount == 5 || lossCount == 5){ // when score = 5, remove the listeners
         rock.removeEventListener("click" , playerRock);
         paper.removeEventListener("click" , playerPaper);
         scissors.removeEventListener("click" , playerScissors);
@@ -85,9 +91,13 @@ function playRound(){ //keeps track of round... after five rounds removes the ev
         paper.removeEventListener("click" , playRound);
         scissors.removeEventListener("click" , playRound);
         if (winCount > lossCount){
-            console.log('You are ze winner!');//calculate winner/loser
+            declarewinner.innerHTML = 'You win! ' + winCount + ' - ' + lossCount ;
+            roundCount--;
+            updateRoundCount(roundCount);
         } else if (lossCount > winCount){
-            console.log('You are ze loser!');
+            declarewinner.innerHTML = 'You lose. ' + winCount + ' - ' + lossCount ;
+            roundCount--;
+            updateRoundCount(roundCount);
         } else console.log("I think this is a tie")
 }
 }
@@ -102,23 +112,23 @@ function playerRock(){ //this plays upon rock being clicked
     setPlayerIcon('rock');
    if (x == 'ROCK'){
         setComputerIcon('rock');
-        console.log('TIE!');
+        declarewinner.innerHTML = "TIE!";
         tieCount++;
         updateTieCount(tieCount);
    } else if (x == 'PAPER'){
         setComputerIcon('paper');
-        console.log('You Lose!  PAPER beats ROCK!');
+        declarewinner.innerHTML = 'You Lose!  PAPER beats ROCK!';
         lossCount++;
         updateLossCount(lossCount);
    } else if (x == 'SCISSORS'){
         setComputerIcon('scissors');
-        console.log('You Win! ROCK beats SCISSORS!');
+        declarewinner.innerHTML ='You Win! ROCK beats SCISSORS!';
         winCount++;
         updateWinCount(winCount);
    } else {
         console.log('Something is wrong here.');
     }
-    ++roundCount
+    roundCount++;
     updateRoundCount(roundCount);
 }
 
@@ -127,17 +137,17 @@ function playerPaper(){ // this plays upon paper being clicked
     setPlayerIcon('paper');
     if (x == 'PAPER'){
         setComputerIcon('paper');
-        console.log('TIE!');
+        declarewinner.innerHTML = 'TIE!';
         ++tieCount;
         updateTieCount(tieCount);
     } else if (x == 'ROCK'){
         setComputerIcon('rock');
-        console.log('You Win! PAPER beats ROCK!');
+        declarewinner.innerHTML = 'You Win! PAPER beats ROCK!';
         ++winCount;
         updateWinCount(winCount);
     } else if (x == 'SCISSORS') {
         setComputerIcon('scissors');
-        console.log('You Lose! SCISSORS beats PAPER!');
+        declarewinner.innerHTML = 'You Lose! SCISSORS beats PAPER!';
         ++lossCount;
         updateLossCount(lossCount);
     } else {
@@ -152,17 +162,17 @@ function playerScissors(){ //this plays upon scissors being clicked
     setPlayerIcon('scissors');
     if (x == 'SCISSORS'){
         setComputerIcon('scissors');
-        console.log('TIE!');
+        declarewinner.innerHTML = 'TIE!';
         ++tieCount;
         updateTieCount(tieCount);
     } else if (x == 'PAPER'){
         setComputerIcon('paper');
-        console.log('You win! SCISSORS beats PAPER!');
+        declarewinner.innerHTML = 'You win! SCISSORS beats PAPER!';
         ++winCount;
         updateWinCount(winCount);
     } else if (x == 'ROCK'){
         setComputerIcon('rock');
-        console.log('You Lose! ROCK beats SCISSORS!');
+        declarewinner.innerHTML = 'You Lose! ROCK beats SCISSORS!';
         ++lossCount;
         updateLossCount(lossCount);
     } else {
@@ -173,9 +183,7 @@ function playerScissors(){ //this plays upon scissors being clicked
 }
 
 function updateRoundCount(){ //this updates the round count variable and reassigns the div on the page to the current round count
-    if (roundCount <= 5){
-        round.innerHTML = roundCount;
-    } else round.innerHTML = 5;
+    round.innerHTML = roundCount;
 }
 
 function updateTieCount(){ //this updates the tiecount variable and reassigns the div on the page

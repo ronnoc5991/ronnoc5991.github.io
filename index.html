@@ -148,6 +148,7 @@ body{
 #playarea{
     display: none;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
     background-color: rgba(255, 255, 255, 0.40);
     border: 5px solid rgba(255, 255, 255, 0.50);
     border-radius: 5%;
@@ -162,11 +163,27 @@ body{
     padding-bottom: 50%;
     border-radius: 50%;
     justify-self: center;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#declarewinner{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    font-size: 20;
 }
 
 #vs{
     justify-content: center;
     font-size: 30;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
 
 #computericon{
@@ -174,6 +191,10 @@ body{
     padding-bottom: 50%;
     border-radius: 50%;
     justify-self: center;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
 }
 
 #bottom {
@@ -282,6 +303,7 @@ body{
                     <div id="playericon"></div>
                     <div id="vs">VS</div>
                     <div id="computericon"></div>
+                    <div id="declarewinner"></div>
                 </div>
             </div>
 
