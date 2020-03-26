@@ -1,6 +1,10 @@
+//calculator is done... some operational buttons are not functional... should add a backspace button when I have time and add functionality to the dead buttons
+
+
+
 var clear = document.getElementById("clear").addEventListener("click", clearsDisplay);
-var togglesign = document.getElementById("togglesign").addEventListener("click", makeANumber);
-var percent = document.getElementById("percent").addEventListener("click", makeANumber);
+var togglesign = document.getElementById("togglesign").addEventListener("click", toggleSign);
+var percent = document.getElementById("percent").addEventListener("click", percent);
 var divide = document.getElementById("divide").addEventListener("click",setOperator);
 var times = document.getElementById("times").addEventListener("click",setOperator);
 var minus = document.getElementById("minus").addEventListener("click",setOperator);
@@ -57,6 +61,13 @@ function clearsDisplay() { //sets displayText to 0 and clears the numberArray
 
 function makeANumber() { //puts numbers into array and sets the displayText equal... does not store the number
     let x = numberTranslation[this.id];
+    if (x == ".") {
+        let dot = numberArray.includes(".");
+        if (dot) {
+            return //if there is already a decimal in the array do nothing
+        }
+    }
+
     numberArray.push(x); //puts x in array
     displayText = (numberArray.join('')); //changes display text
     updateDisplay();
@@ -180,5 +191,26 @@ function division() {
     toggleNumber = 1;
     operator = 0;
     updateDisplay();
+    }
+}
+
+function toggleSign() {
+    if (numberArray[0] == "-") {
+        numberArray.shift();
+    } else {
+    numberArray.unshift("-");
+    }
+    displayText = (numberArray.join(''))
+    updateDisplay();
+}
+
+function percent() {
+    let currentNumber = numberArray.join("")
+    if (currentNumber <= 9 && currentNumber > 0) {
+        numberArray.unshift(".0");
+        evaluate();
+    } else {
+        numberArray.unshift(".");
+        evaluate();
     }
 }

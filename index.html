@@ -1,320 +1,243 @@
 <html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+
 <style>
-
 body{
-    padding: 0;
-    margin: 0;
-    overflow:hidden;
+    max-width: 1000px;
+    max-height: 1000px;
+    margin: auto;
+    background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
-#container {
-    width: 100%;
-    height: 100%;
+#container{
+    background: #8e9eab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 2fr 3fr 3fr;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #A8E0FF;
-    overflow:hidden;
+    grid-template-rows: 2fr 6fr;
+    justify-content: center;
+    margin: 40px auto 20px auto;
+    width: 300px;
+    height: 500px;
+    border-radius: 2%;
+    box-shadow: 0 0 2pt 2pt black;
 }
 
-    #roundinformation {
-        grid-row-start: 1;
-        grid-row-end: 2;
-        grid-column-start: 2;
-        grid-column-end: 3;
-        margin-top: 10px;
-        border: 6px solid black;
-        background-color: rgba(255, 255, 255, 0.40);
-        border-radius: 5%;
-        width: 85%;
-        height: 80%;
-        justify-self: center;
-        display:grid;
-        justify-content: center;
-        align-items: center;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
-        overflow:hidden;
-    }
+#display{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: #eef2f3;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 2%;
+    text-align: right;
+    height: auto;
+    line-height: 5;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-right: 15px;
+    box-shadow: 0 0 2pt 2pt black;
+}
 
+#buttons{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1f 1fr 1fr;
+    margin-bottom: 12px;
+}
 
-
-        #roundcounter{
-            grid-row-start: 1;
-            grid-row-end: 2;
-            grid-column-start: 1;
-            grid-column-end: 4;
-            justify-self: center;
-            font-size: 20;
-        }
-    
-        #roundnumber{
-            grid-row-start: 2;
-            grid-row-end: 3;
-            grid-column-start: 2;
-            grid-column-end: 3;
-            justify-self: center;
-            font-size: 30;
-        }
-
-        #scoretitles{
-            grid-row-start: 3;
-            grid-row-end: 4;
-            grid-column-start: 1;
-            grid-column-end: 4;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-
-            #winstitle{
-                grid-column-start: 1;
-                grid-column-end: 2;
-                justify-self: center;
-                font-size: 12;
-            }
-
-            #lossestitle{
-                grid-column-start: 2;
-                grid-column-end: 3;
-                justify-self: center;
-                font-size: 12;
-            }
-
-            #tiestitle{
-                grid-column-start: 3;
-                grid-column-end: 4;
-                justify-self: center;
-                font-size: 12;
-            }
-
-    #scorecounter{
-        grid-row-start: 4;
-        grid-row-end: 5;
-        grid-column-start: 1;
-        grid-column-end: 4;
-        font-size: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-        #wins{
-            grid-column-start: 1;
-            grid-column-end: 2;
-            justify-self: center;
-        }
-
-        #losses{
-            grid-column-start: 2;
-            grid-column-end: 3;
-            justify-self: center;
-        }
-
-        #ties{
-            grid-column-start: 3;
-            grid-column-end: 4;
-            justify-self: center;
-        }
-
-#faceoff{
+.buttons{
+    color: black;
+    height: 60px;
+    width: 60px;
+    border-radius: 20px;
+    background-color: #eef2f3;
     text-align: center;
+    margin: 4 4 4 4;
+    line-height: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25;
+    box-shadow: 0 0 1pt 2pt black;
+}
+
+.buttons:hover{
+    background-color: #eef2f1;
+    box-shadow: 0 0 4pt 3pt black;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#number9{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+#number8{
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-    overflow:hidden;
-    display: flex;
-    justify-content: center;
 }
 
-#play{
-    background-color: rgba(255, 255, 255, 0.20);
-    height: 200px;
-    width: 200px;
-    border: 15px solid rgba(255, 255, 255, 0.30);
-    border-radius: 50%;
-    outline: none;
-}
-
-#play:hover{
-    cursor: pointer;
-    background-color: #FDFFFC;
-    border: 15px solid yellow;
-}
-
-#playarea{
-    display: none;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 2fr;
-    background-color: rgba(255, 255, 255, 0.40);
-    border: 5px solid rgba(255, 255, 255, 0.50);
-    border-radius: 5%;
-    height: 90%;
-    width: 90%;
-    justify-content: center;
-    align-items: center;
-}
-
-#playericon{
-    width: 50%;
-    padding-bottom: 50%;
-    border-radius: 50%;
-    justify-self: center;
-    grid-row-start: 1;
-    grid-row-end: 3;
+#number7{
     grid-column-start: 1;
     grid-column-end: 2;
-}
-
-#declarewinner{
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    font-size: 20;
-}
-
-#vs{
-    justify-content: center;
-    font-size: 30;
-    grid-row-start: 1;
+    grid-row-start: 2;
     grid-row-end: 3;
-    grid-column-start: 2;
-    grid-column-end: 3;
 }
 
-#computericon{
-    width: 50%;
-    padding-bottom: 50%;
-    border-radius: 50%;
-    justify-self: center;
-    grid-row-start: 1;
-    grid-row-end: 3;
+#number6{
     grid-column-start: 3;
     grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
 }
 
-#bottom {
+#number5{
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
-    margin-bottom: 20;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;  
-    overflow:hidden;
 }
 
-    .options{
-        border: 6px solid black;
-        width: 40%;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding-top: 40%;
-        text-align: center;
-        border-radius: 15%;
-        background-color: rgba(255, 255, 255, 0.15);
-    }
+#number4{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
 
-    #Rock{
-        grid-column-start: 1;
-        grid-column-end: 2;
-        align-self: center;
-        justify-self: center;
-        margin-bottom: 80;
-        background-image: url(images/rock1.png);
-        background-size: contain;
-    }
+#number3{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
 
-    #Rock:hover{
-        border: 8px solid yellow;
-        transform: scale(1.1);
-        cursor: pointer;
-        background-color: #4D9DE0;
-    }
+#number2{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
 
-    #Paper{
-        grid-column-start: 2;
-        grid-column-end: 3;
-        align-self: center;
-        justify-self: center;
-        margin-top: 80;
-        background-image: url(images/paper1.png);
-        background-size: contain;
-    }
+#number1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
 
-    #Paper:hover{
-        border: 8px solid yellow;
-        transform: scale(1.1);
-        cursor: pointer;
-        background-color: #E15554;
-    }
+#number0{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
 
-    #Scissors{
-        grid-column-start: 3;
-        grid-column-end: 4;
-        align-self: center;
-        justify-self: center;
-        margin-bottom: 80;
-        background-image: url(images/scissors1.png);
-        background-size: contain;
-    }
+#clear{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: orange;
+}
 
-    #Scissors:hover{
-        border: 8px solid yellow;
-        transform: scale(1.1);
-        cursor: pointer;
-        background-color: #E1BC29;
-    }
+#times{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
 
+#minus{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
 
+#plus{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+#equals{
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    width: 124px;
+}
+
+#togglesign{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#percent{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#decimal{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+}
 
 </style>
 
-    <head>
-        <title>Rock Paper Scissors</title>
-    </head>
+<head> 
+    <title>Calculator</title>
+</head>
 
-    <div id = "container">
+<body>
 
-            <div id="roundinformation">
-                <div id="roundcounter"> ROUND</div>
-                <div id="roundnumber">-</div>
-            
-                <div id="scoretitles">
-                    <div id="winstitle">WINS</div>
-                    <div id="lossestitle">LOSSES</div>
-                    <div id="tiestitle">TIES</div>
-                </div>
-            
-                <div id="scorecounter">
-                    <div id="wins">-</div>
-                    <div id="losses">-</div>
-                    <div id="ties">-</div>
-                </div>
-            </div>
+<div id="container">
 
-            <div id="faceoff">
-                <button type="button" id="play"> Play </button>
-                <div id = "playarea">
-                    <div id="playericon"></div>
-                    <div id="vs">VS</div>
-                    <div id="computericon"></div>
-                    <div id="declarewinner"></div>
-                </div>
-            </div>
+        <div id="display">0</div>
+        
+        <div id="buttons">
+            <div id="clear" class="buttons">C</div>
+            <div id="togglesign" class="buttons">+/-</div>
+            <div id="percent" class="buttons">%</div>
+            <div id="divide" class="buttons">÷</div>
+            <div id="times" class="buttons">x</div>
+            <div id="minus" class="buttons">-</div>
+            <div id="plus" class="buttons">+</div>
+            <div id="equals" class="buttons">=</div>
+            <div id="decimal" class="buttons">.</div>
+            <div id="number9" class="buttons">9</div>
+            <div id="number8" class="buttons">8</div>
+            <div id="number7" class="buttons">7</div>
+            <div id="number6" class="buttons">6</div>
+            <div id="number5" class="buttons">5</div>
+            <div id="number4" class="buttons">4</div>
+            <div id="number3" class="buttons">3</div>
+            <div id="number2" class="buttons">2</div>
+            <div id="number1" class="buttons">1</div>
+            <div id="number0" class="buttons">0</div>
+        </div>
 
-            <div id="bottom">
-                <div id="Rock" class="options"></div>
-                <div id="Paper" class="options"></div>
-                <div id="Scissors" class="options"></div>
-            </div>
+</div>
 
-    </div>
+</body>
 
-    <script src = "rps.js"></script>
-
+<script src="calculator.js"></script>
 </html>
