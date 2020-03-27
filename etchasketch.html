@@ -11,10 +11,18 @@
         height: 100%;
         width: 100%;
         overflow:hidden;
+        display: grid;
+        grid-template-columns: 1fr 8fr 1fr;
+        grid-template-rows: 1fr 8fr;
+
     }
 
 
     #buttondiv{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -29,11 +37,15 @@
     }
 
     #visuals{
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
         background: red;
-        width: 800px;
-        height: 650px;
-        margin-left: 100px;
-        margin-right: 100px;
+        width: 60%;
+        height: 75%;
+        margin-left: 20%;
+        margin-right: 20%;
         display: grid;
         grid-template-rows: 1fr 5fr 1fr;
         grid-template-columns: 1fr 3fr 1fr;
