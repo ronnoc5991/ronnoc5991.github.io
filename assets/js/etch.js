@@ -1,5 +1,5 @@
 const container = document.getElementById("container");
-container.style.cssText = 'display: flex; flex-wrap: wrap; align-items: center; background: yellow; width: 450px; height: 450px; margin: 0 auto; grid-row-start: 2; grid-row-end: 3; grid-column-start: 2; grid-column-end: 3; align-self: center; border: 4px solid black; border-radius: 1%; box-shadow: 0 0 2pt 1pt;';
+container.style.cssText = 'display: flex; flex-wrap: wrap; align-items: center; background: yellow; width: 100%; height: 100%; margin: 0 auto; grid-row-start: 2; grid-row-end: 3; grid-column-start: 2; grid-column-end: 3; align-self: center; border: 4px solid black; border-radius: 1%; box-shadow: 0 0 2pt 1pt;';
 document.getElementById("button").addEventListener('click' , newGrid);
 
 
