@@ -2137,6 +2137,12 @@ input, select, textarea {
 				width: 100%;
 			}
 
+
+		.projectimage{
+			width: 250px;
+			height: 250px;
+			
+		}
 /* List */
 
 	ol {
