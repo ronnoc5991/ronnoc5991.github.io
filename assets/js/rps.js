@@ -7,6 +7,9 @@ const scissors = document.getElementById("Scissors");
 const playericon = document.getElementById("playericon");
 const computericon = document.getElementById("computericon");
 const declarewinner = document.getElementById("declarewinner");
+const newgamebutton = document.getElementById("newgamebutton");
+const vs = document.getElementById("vs");
+const vstext = document.getElementById("vstext");
 let wins = document.getElementById("wins");
 let losses = document.getElementById("losses");
 let ties = document.getElementById("ties");
@@ -37,6 +40,14 @@ function startGame(){ //initializes the event listeners and removes event listen
 
 function togglePlayButton (){ //removes the play button after the game is started
     playbutton.style.display = 'none';
+}
+
+function toggleNewGameButton () {
+    if (newgamebutton.style.display == "none") {
+        newgamebutton.style.display == "grid";
+    } else {
+        newgamebutton.style.display = "none";
+    }
 }
 
 function togglePlayArea(){ //makes the play area appear
@@ -94,10 +105,16 @@ function playRound(){ //keeps track of score... when player or computer reaches 
             declarewinner.innerHTML = 'You win! ' + winCount + ' - ' + lossCount ;
             roundCount--;
             updateRoundCount(roundCount);
+            newgamebutton.style.display = "inline"; //makes new game button appear
+            vstext.style.opacity = "0"
+            newgamebutton.addEventListener('click' , newGame);
         } else if (lossCount > winCount){
             declarewinner.innerHTML = 'You lose. ' + winCount + ' - ' + lossCount ;
             roundCount--;
             updateRoundCount(roundCount);
+            newgamebutton.style.display = "inline"; //makes new game button appear
+            vstext.style.opacity = "0"
+            newgamebutton.addEventListener('click' , newGame);
         } else console.log("I think this is a tie")
 }
 }
@@ -197,4 +214,30 @@ function updateLossCount(){ //this updates the losscount variable and reassigns 
 function updateWinCount(){ //this updates the wincount variable and reassigns the div on the page
     wins.innerHTML = winCount;
     return winCount;
+}
+
+function newGame(){ //initializes the event listeners and removes event listener from the playbutton
+    winCount = 0;
+    lossCount = 0;
+    tieCount = 0;
+    roundCount = 1;
+    score = 0;
+    declarewinner.innerHTML = ""
+    wins.innerHTML = winCount;
+    losses.innerHTML = lossCount;
+    ties.innerHTML = tieCount;
+    round.innerHTML = roundCount;
+    playericon.style.backgroundColor = "rgba(255, 255, 255, 0.40)";
+    computericon.style.backgroundColor = "rgba(255, 255, 255, 0.40)";
+    computericon.style.backgroundImage = 'none';
+    playericon.style.backgroundImage = "none";
+    rock.addEventListener("click", playerRock);
+    paper.addEventListener('click' , playerPaper);
+    scissors.addEventListener('click' , playerScissors);
+    rock.addEventListener("click", playRound);
+    paper.addEventListener('click' , playRound);
+    scissors.addEventListener('click' , playRound);
+    newgamebutton.removeEventListener('click' , newGame);
+    newgamebutton.style.display = "none";
+    vstext.style.opacity = "1"
 }

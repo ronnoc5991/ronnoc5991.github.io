@@ -135,18 +135,28 @@ body{
 }
 
 #play{
-    background-color: rgba(255, 255, 255, 0.20);
-    height: 200px;
-    width: 200px;
-    border: 15px solid rgba(255, 255, 255, 0.30);
+    background: #ED213A;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #93291E, #ED213A);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 160px;
+    width: 160px;
+    border: 5px solid white;
     border-radius: 50%;
     outline: none;
+    font-size: 18;
+    color: white;
+    font-style: italic;
 }
 
 #play:hover{
     cursor: pointer;
     background-color: #FDFFFC;
-    border: 15px solid yellow;
+    border: 6px solid white;
+    font-size: 18.5;
+}
+
+#newgamebutton {
+    display: none;
 }
 
 #playarea{
@@ -188,6 +198,7 @@ body{
     grid-row-end: 3;
     grid-column-start: 2;
     grid-column-end: 3;
+    font-style: italic;
 }
 
 #computericon{
@@ -302,10 +313,13 @@ body{
             </div>
 
             <div id="faceoff">
-                <button type="button" id="play"> Play </button>
+                <button type="button" id="play"> Click Here<br> to<br> Play! </button>
                 <div id = "playarea">
                     <div id="playericon"></div>
-                    <div id="vs">VS</div>
+                    <div id="vs">
+                        <div id = "vstext">VS</div> 
+                        <div id = "newgamebutton"><button type="button" id = "play">Click Here<br> to<br> Play Again!</button></div>
+                    </div>
                     <div id="computericon"></div>
                     <div id="declarewinner"></div>
                 </div>
