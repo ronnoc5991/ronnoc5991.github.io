@@ -1,7 +1,3 @@
-//calculator is done... some operational buttons are not functional... should add a backspace button when I have time and add functionality to the dead buttons
-
-
-
 var clear = document.getElementById("clear").addEventListener("click", clearsDisplay);
 var togglesign = document.getElementById("togglesign").addEventListener("click", toggleSign);
 var percent = document.getElementById("percent").addEventListener("click", percent);
